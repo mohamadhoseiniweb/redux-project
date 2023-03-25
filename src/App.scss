@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: yekan;
+  src: url(./assets/fonts/Yekan.eot);
+  src: url(./assets/fonts/Yekan.eot?#iefix) format("embedded-opentype"),
+    url(./assets/fonts/Yekan.woff) format("woff"),
+    url(./assets/fonts/Yekan.ttf) format("truetype"),
+    url(./assets/fonts/Yekan.svg#BYekan) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@layer base {
+  body {
+    font-family: yekan, tahoma, sans-serif;
+  }
+}
+
+#modal{
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  opacity: 1;
+  height: 100%;
+}
+
+
+/*spinner*/
+.input-spinner .num-in {
+  background: #ffffff;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  height: 35px;
+  width: 120px;
+  float: right;
+  background-color: #e2e8f0;
+}
+
+.input-spinner .num-in span {
+  width: 30%;
+  display: block;
+  height: 35px;
+  float: right;
+  position: relative;
+  cursor: pointer;
+}
+
+.input-spinner .num-in span:before,
+.input-spinner .num-in span:after {
+  content: "";
+  position: absolute;
+  background-color: #667780;
+  height: 2px;
+  width: 8px;
+  top: 50%;
+  left: 50%;
+  margin-top: -1px;
+  margin-left: -5px;
+}
+
+.input-spinner .num-in span.plus:after {
+  transform: rotate(90deg);
+}
+
+.input-spinner .num-in input {
+  float: right;
+  width: 40%;
+  height: 35px;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+}
+
+
+.cart-preview {
+  display: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: -9px;
+    left: 8px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #ccc;
+    z-index: 1;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: -7px;
+    left: 9px;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #fff;
+    z-index: 1;
+  }
+}
+.cart-preview .cart-items{
+  overflow-y: scroll;
+  height: 335px;
+}
+.cart-preview.active {
+  z-index: 99;
+  display: block;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 360px;
+  height: 400px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  @media (max-width: 400px) {
+    top: 45px;
+    width: 100%;
+    min-width: 300px;
+    & > div {
+      width: 100% !important;
+    }
+    .cart-items {
+      width: 100%;
+    }
+    .stepper-input {
+      a {
+        display: none;
+      }
+    }
+  }
+}
+.cart-preview .cart-items::-webkit-scrollbar {
+  width: 0.4em;
+  cursor: pointer;
+}  
+.cart-preview .cart-items::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
